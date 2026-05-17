@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI — Alzheimer's Disease Detection</title>
+    <meta name="description" content="AI-powered Alzheimer's Disease Detection using DenseNet121 CNN and clinical data analysis. A hybrid diagnostic support tool.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background grid -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <div class="header__brand">
+                <div class="header__logo" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" stroke="url(#logo-grad)" stroke-width="2.5" fill="none"/>
+                        <path d="M20 6 C12 10, 8 18, 14 26 C17 30, 23 30, 26 26 C32 18, 28 10, 20 6Z" fill="url(#logo-grad)" opacity="0.15"/>
+                        <path d="M20 8 C14 11, 11 17, 15 24 C17 27, 23 27, 25 24 C29 17, 26 11, 20 8Z" stroke="url(#logo-grad)" stroke-width="1.5" fill="none"/>
+                        <path d="M16 15 Q20 12 24 15" stroke="url(#logo-grad)" stroke-width="1.2" fill="none"/>
+                        <path d="M15 19 Q20 16 25 19" stroke="url(#logo-grad)" stroke-width="1.2" fill="none"/>
+                        <path d="M16 23 Q20 20 24 23" stroke="url(#logo-grad)" stroke-width="1.2" fill="none"/>
+                        <defs>
+                            <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#00d4aa"/>
+                                <stop offset="100%" stop-color="#0ea5e9"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="header__text">
+                    <h1 class="header__title">NeuroScan <span class="header__title-accent">AI</span></h1>
+                    <p class="header__subtitle">Alzheimer's Disease Detection System</p>
+                </div>
+            </div>
+            <div class="header__credits">
+                <span class="header__credits-label">Developed by</span>
+                <span class="header__credits-names">Zyad Mohamed &amp; Rowayda Hatem</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PIPELINE INDICATOR ===== -->
+    <section class="pipeline" id="pipeline-info">
+        <div class="pipeline__inner">
+            <div class="pipeline__step">
+                <div class="pipeline__icon pipeline__icon--cnn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                </div>
+                <div class="pipeline__label">
+                    <strong>DenseNet121 CNN</strong>
+                    <span>MRI Scan Analysis</span>
+                </div>
+            </div>
+            <div class="pipeline__connector" aria-hidden="true">
+                <svg viewBox="0 0 40 12" fill="none"><path d="M0 6h32M28 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="pipeline__step">
+                <div class="pipeline__icon pipeline__icon--merge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+                </div>
+                <div class="pipeline__label">
+                    <strong>Hybrid Fusion</strong>
+                    <span>Combined Analysis</span>
+                </div>
+            </div>
+            <div class="pipeline__connector" aria-hidden="true">
+                <svg viewBox="0 0 40 12" fill="none"><path d="M0 6h32M28 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="pipeline__step">
+                <div class="pipeline__icon pipeline__icon--ann">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2.5"/><line x1="7.5" y1="7.5" x2="10" y2="10"/><line x1="16.5" y1="7.5" x2="14" y2="10"/><line x1="7.5" y1="16.5" x2="10" y2="14"/><line x1="16.5" y1="16.5" x2="14" y2="14"/></svg>
+                </div>
+                <div class="pipeline__label">
+                    <strong>ANN / SVM</strong>
+                    <span>Clinical Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main" id="main-content">
+        <div class="main__grid">
+            <!-- ── LEFT PANEL: MRI Upload ── -->
+            <section class="panel panel--mri" id="mri-panel">
+                <div class="panel__header">
+                    <div class="panel__badge panel__badge--imaging">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+                    </div>
+                    <h2 class="panel__title">MRI Scan Upload</h2>
+                </div>
+                <p class="panel__desc">Upload an axial brain MRI scan for AI-powered neurological analysis using our DenseNet121 model.</p>
+
+                <div class="upload" id="upload-zone">
+                    <div class="upload__dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload MRI scan">
+                        <div class="upload__idle" id="upload-idle">
+                            <div class="upload__icon-ring">
+                                <svg class="upload__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M24 32V16M24 16l-7 7M24 16l7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="6" y="6" width="36" height="36" rx="8"/>
+                                </svg>
+                            </div>
+                            <p class="upload__text">Drag &amp; drop MRI scan here</p>
+                            <p class="upload__subtext">or click to browse &bull; PNG, JPG accepted</p>
+                        </div>
+                        <div class="upload__preview" id="upload-preview" hidden>
+                            <img id="preview-image" alt="Uploaded MRI scan preview">
+                            <button class="upload__remove" id="remove-btn" aria-label="Remove uploaded image" title="Remove image">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                            </button>
+                        </div>
+                        <input type="file" id="file-input" accept=".png,.jpg,.jpeg" hidden>
+                    </div>
+                    <div class="upload__meta" id="file-meta" hidden>
+                        <span class="upload__filename" id="file-name"></span>
+                        <span class="upload__filesize" id="file-size"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── RIGHT PANEL: Clinical Data ── -->
+            <section class="panel panel--clinical" id="clinical-panel">
+                <div class="panel__header">
+                    <div class="panel__badge panel__badge--clinical">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <h2 class="panel__title">Clinical Data Input</h2>
+                </div>
+                <p class="panel__desc">Provide the patient's clinical indicators for the ANN/SVM tabular analysis module.</p>
+
+                <form class="clinical-form" id="clinical-form" autocomplete="off">
+                    <!-- Age -->
+                    <div class="field" id="field-age">
+                        <div class="field__header">
+                            <label class="field__label" for="age-slider">Patient Age</label>
+                            <output class="field__value" id="age-value">72</output>
+                        </div>
+                        <input type="range" class="field__slider" id="age-slider" min="40" max="100" value="72" step="1">
+                        <div class="field__range">
+                            <span>40</span><span>100</span>
+                        </div>
+                    </div>
+
+                    <!-- MMSE Score -->
+                    <div class="field" id="field-mmse">
+                        <div class="field__header">
+                            <label class="field__label" for="mmse-slider">MMSE Score</label>
+                            <output class="field__value field__value--mmse" id="mmse-value">26</output>
+                        </div>
+                        <input type="range" class="field__slider field__slider--mmse" id="mmse-slider" min="0" max="30" value="26" step="1">
+                        <div class="field__range">
+                            <span>0 <small>(Severe)</small></span><span>30 <small>(Normal)</small></span>
+                        </div>
+                        <div class="field__hint">
+                            <svg viewBox="0 0 16 16" fill="currentColor" width="14"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2.5a1 1 0 110 2 1 1 0 010-2zM6.5 7h2v4.5h-2V7z"/></svg>
+                            Mini-Mental State Examination — cognitive function assessment
+                        </div>
+                    </div>
+
+                    <!-- CDR -->
+                    <div class="field" id="field-cdr">
+                        <div class="field__header">
+                            <label class="field__label" for="cdr-select">Clinical Dementia Rating (CDR)</label>
+                        </div>
+                        <div class="select-wrap">
+                            <select class="field__select" id="cdr-select">
+                                <option value="0">0 — No Dementia</option>
+                                <option value="0.5" selected>0.5 — Very Mild</option>
+                                <option value="1">1 — Mild</option>
+                                <option value="2">2 — Moderate</option>
+                                <option value="3">3 — Severe</option>
+                            </select>
+                            <svg class="select-wrap__arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+                        </div>
+                        <div class="cdr-badges" id="cdr-badges">
+                            <span class="cdr-badge cdr-badge--0" data-cdr="0">0</span>
+                            <span class="cdr-badge cdr-badge--05 cdr-badge--active" data-cdr="0.5">0.5</span>
+                            <span class="cdr-badge cdr-badge--1" data-cdr="1">1</span>
+                            <span class="cdr-badge cdr-badge--2" data-cdr="2">2</span>
+                            <span class="cdr-badge cdr-badge--3" data-cdr="3">3</span>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <!-- ── ACTION BUTTON ── -->
+        <div class="action" id="action-section">
+            <button class="action__btn" id="run-btn" type="button">
+                <span class="action__btn-bg" aria-hidden="true"></span>
+                <span class="action__btn-content">
+                    <svg class="action__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span class="action__btn-label">Run AI Diagnosis</span>
+                </span>
+            </button>
+            <p class="action__hint">Dual-pipeline analysis: DenseNet121 CNN + ANN/SVM</p>
+        </div>
+
+        <!-- ── RESULTS DASHBOARD ── -->
+        <section class="results" id="results-section" hidden>
+            <div class="results__header">
+                <h2 class="results__title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                    Diagnostic Results
+                </h2>
+                <span class="results__timestamp" id="results-time"></span>
+            </div>
+
+            <div class="results__grid">
+                <!-- Classification Card -->
+                <div class="result-card result-card--class" id="result-class-card">
+                    <div class="result-card__label">Classification</div>
+                    <div class="result-card__value" id="result-class">—</div>
+                    <div class="result-card__sub" id="result-class-desc"></div>
+                </div>
+
+                <!-- Confidence Card -->
+                <div class="result-card result-card--conf" id="result-conf-card">
+                    <div class="result-card__label">Confidence</div>
+                    <div class="result-card__pct" id="result-conf-pct">0%</div>
+                    <div class="result-card__bar-track">
+                        <div class="result-card__bar-fill" id="result-conf-bar" style="width:0%"></div>
+                    </div>
+                </div>
+
+                <!-- Model Info Card -->
+                <div class="result-card result-card--model" id="result-model-card">
+                    <div class="result-card__label">Models Used</div>
+                    <div class="result-card__models">
+                        <span class="model-tag model-tag--cnn">DenseNet121</span>
+                        <span class="model-tag model-tag--ann">ANN / SVM</span>
+                    </div>
+                    <div class="result-card__sub" id="result-pipeline-desc">Hybrid fusion pipeline</div>
+                </div>
+
+                <!-- Severity Breakdown -->
+                <div class="result-card result-card--breakdown" id="result-breakdown-card">
+                    <div class="result-card__label">Class Probabilities</div>
+                    <div class="breakdown" id="breakdown-bars">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer" id="disclaimer">
+                <div class="disclaimer__icon">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="disclaimer__text">
+                    <strong>Medical Disclaimer:</strong> This tool is an AI-assisted diagnostic aid only. Results are generated by machine learning models and should <em>not</em> be considered a definitive medical diagnosis. Always consult a qualified healthcare professional for clinical decisions.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <p>&copy; 2026 NeuroScan AI &mdash; Alzheimer's Disease Detection System</p>
+        <p class="footer__credits">Developed by <strong>Zyad Mohamed</strong> &amp; <strong>Rowayda Hatem</strong></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
