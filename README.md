@@ -1,12 +1,12 @@
 # 🧠 Alzheimer's Disease Detection: A Multi-Modal AI Pipeline
-**Authors:** Zyad Mohamed & Rowayda Hatem
+
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Latest-yellow)
 ![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)
 
-**Developed by:** Zyad Mohamed Saied (Toza) & Rowayda Hatem  
+**Developed by:** Zyad Mohamed Saied & Rowayda Hatem  
 **Domain:** Machine Learning, Computer Vision, Data Engineering, Healthcare AI  
 
 ---
